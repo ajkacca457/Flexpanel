@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+  <title>FlexGallary</title>
+  <style>
+
+    body {
+      padding:0;
+      margin:0;
+      font-family: 'Barlow Condensed', sans-serif;
+      color:white;
+    }
+
+      h1,h2 {
+        margin:0;
+        background-color:rgba(83, 79, 70, .5);
+      }
+
+    .panel1 {
+      background: url("images/one.jpg");
+      background-size:cover;
+    }
+    .panel2 {
+      background: url("images/two.jpg");
+      background-size:cover;
+    }
+    .panel3 {
+      background: url("images/three.jpg");
+      background-size:cover;
+    }
+
+    .panel4 {
+      background: url("images/four.jpg");
+      background-size:cover;
+    }
+    .panel5 {
+      background: url("images/five.jpg");
+      background-size:cover;
+    }
+
+    .panels {
+      display:flex;
+      height:100vh;
+      overflow:hidden;
+    }
+
+    .panel {
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      flex-grow:1;
+      transition: all .4s ease;
+    }
+
+    .panel > * {
+      margin:0;
+      width:100%;
+      display:flex;
+      flex:1 0 auto;
+      align-items:center;
+      justify-content:center;
+      transition:all .4s ease;
+
+    }
+
+    .panel.active {
+      flex:5;
+      font-size:200%;
+    }
+
+    .panel>*:first-child {
+      transform:translateY(-100%);
+    }
+    .panel>*:last-child {
+      transform:translateY(100%);
+    }
+    .panel.open>*:first-child {
+      transform:translateY(0%);
+    }
+    .panel.open>*:last-child {
+      transform:translateY(0%);
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+<div class="panels">
+
+<div class="panel panel1">
+<h2>LIFE</h2>
+<h1>DOES</h1>
+<h2>MATTERS</h2>
+</div>
+
+<div class="panel panel2">
+<h2>WORLD</h2>
+<h1>IS</h1>
+<h2>BEAUTIFUL</h2>
+</div>
+
+<div class="panel panel3">
+<h2>NATURE</h2>
+<h1>IS</h1>
+<h2>MOTHER</h2>
+</div>
+
+<div class="panel panel4">
+<h2>WHY</h2>
+<h1>SO</h1>
+<h2>SERIOUS?</h2>
+</div>
+
+<div class="panel panel5">
+<h2>LIVE</h2>
+<h1>WITHOUT</h1>
+<h2>FEAR</h2>
+</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+const items=document.querySelectorAll(".panel");
+
+function toggle(){
+  this.classList.toggle("active");
+    this.classList.toggle("open");
+}
+
+
+items.forEach((item)=>{
+  item.addEventListener("click",toggle)
+})
+
+console.log(items);
+
+
+</script>
+
+</body>
+</html>
